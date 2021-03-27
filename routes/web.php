@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 
 Route::resource('posts', PostController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
